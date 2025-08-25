@@ -287,30 +287,40 @@
         position: absolute;
         width: 100%;
         top: 100%;
+        left: 0; /* Ensures it starts from the left edge */
         visibility: hidden;
         opacity: 0;
-        transition: all 0.3s;
+        transform: translateY(-1.5rem); /* Start slightly above */
+        transition: all 0.3s ease-out;
         box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
       }
       
       .header__sm-menu--active {
         visibility: visible;
         opacity: 1;
+        transform: translateY(0); /* Slide into view */
+      }
+
+      /* FIXED: Added styles for the content container */
+      .header__sm-menu-content {
+        padding: 2.5rem 0;
       }
 
       .header__sm-menu-link a {
         display: block;
         text-decoration: none;
-        padding: 2.5rem 3rem;
+        padding: 1.5rem 3rem; /* Adjusted padding */
         font-size: 1.6rem;
         color: #333;
         text-align: right;
         border-bottom: 1px solid #eee;
         font-weight: 700;
         text-transform: uppercase;
+        width: 100%; /* Ensure link takes full width */
       }
       .header__sm-menu-link a:hover {
         color: var(--color-primary);
+        background: #f9f9f9; /* Add a subtle hover effect */
       }
 
       /* --- HERO --- */
@@ -614,6 +624,7 @@
         .heading-sec__mb-bg { margin-bottom: 8rem; }
       }
       @media (max-width: 37.5em) {
+        .header__content { padding: 1rem 2rem; } /* Add padding for smaller screens */
         .heading-primary { font-size: 4.5rem; }
         .text-primary { font-size: 2rem; }
         .home-hero { height: auto; padding: 19rem 0 13rem 0; }
